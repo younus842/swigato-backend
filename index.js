@@ -3,10 +3,12 @@ const app = express();
 const authRoutes = require("./routes/auth");
 const cors = require("cors");
 
-app.use(cors({
-  origin: "http://localhost:3000",
-  credentials: true
-}));
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://swigato-app-frontend.vercel.app"
+];
+
+app.use(cors());
 
 app.use(express.json());
 
